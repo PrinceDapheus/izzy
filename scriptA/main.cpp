@@ -1,92 +1,69 @@
-
 #include <iostream>
 using namespace std;
 
 
+class animal {
 
-class Animal{
+ public: 
+
+  virtual void makeSound(){
+
+
+    cout << "animal make sound" << endl;
+  }
+
+
+
+};
+
+
+class lion : public animal{
 
 public:
 
-virtual void  makeSound (){
+ void makeSound(){
 
-cout << "animal making sound!!!"<< endl;
 
-}
+    cout << "Lion roar!!" << endl;
+  }
+
 
 
 };
 
 
-class Lion : public Animal{
+class cow: public animal{
 
 public:
 
-void makeSound (){
-
-cout << "lion roar!" << endl;
-
-}
+ void makeSound(){
 
 
-};
-
-
-
-class Elephant : public Animal{
-
-public:
-
-void makeSound (){
-
-cout << "Elephant screaming!!!"<< endl;
-
-}
+    cout << "Cow moooo!!" << endl;
+  }
 
 
 
 };
 
-class Parrot : public Animal {
-
-    public:
-
-void makeSound (){
-
-cout << "Parrot Talking!!!"<< endl;
-
-}
-
-};
 
 
 
-
-int main(){
-
+int main (){
 
 
-Animal *animal1;
-Animal *animal2;
-Animal *animal3;
+    animal *a1;
+    animal *a2;
 
-Lion l;
-Elephant e;
-Parrot p;
+    lion theLion;
+    cow theCow;
 
-animal1 = &l;
-animal2 = &e;
-animal3 = &p;
+    a1 = &theLion;
+    a2 = &theCow;
 
 
-animal1->makeSound();
-animal2->makeSound();
-animal3->makeSound();
-
-
-
-
-
+    a1->makeSound();
+    a2->makeSound();
 
 
 
