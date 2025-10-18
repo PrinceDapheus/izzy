@@ -5,80 +5,80 @@
 // tranfer the ownership of the object to another pointer
 
 
-
 #include <iostream>
 using namespace std;
 #include <memory>
 
 
-
-class dog{
-
+class player {
 
 
+    public : 
 
-    public:
-
-    dog(string n)
-    : name(n)
+    player(string n)
+    :name(n)
+    
     {
-      cout << name <<" has been spawned!" << endl;
-        
+    cout << "player : " << name << " has been spawned!"<<endl;
+
+
+    }
+
+    ~player (){
+
+        cout << name << " has terminated!!!"<<endl;
     }
 
 
-    ~dog () {
 
-        cout << name << " has deactivated!"<<endl;
+    void run (int speed ){
+
+        cout<< name << " is running at " << speed << " kph" <<endl;
     }
 
 
-    void bark (){
-
-        cout << name << " is barking like crazy!"<<endl;
-    }
-
-    private:
-
-    string name;
 
 
+
+private:
+
+string name;
 
 
 };
 
 
 
+int main(){
 
+// Declare pointer
+    unique_ptr <player> player1 = make_unique <player> ("Billionare");
 
-int main (){
+//run method
+    player1->run(120);
 
+//Transfer ownership
 
-    unique_ptr <dog> dog1 = make_unique <dog> ("skippy");
+    unique_ptr <player> player2 = move(player1);
 
-    dog1->bark();
+    if (!player1){
 
-cout << "----------" <<endl;
-
-    unique_ptr <dog> dog2 = move(dog1);
-
-    if(!dog1){
-
-        cout << "Ownership of skippy has changed it is now with dog2"<<endl;
-
-
+        cout << "Ownership has been transfered!" <<endl;
 
     }
 
-cout << "----------" <<endl;
 
-dog2 ->bark();
+
+//Use new pointer
+    player2->run(260);
+
+
+
 
 
 
 
     return 0;
-
 }
 
 
