@@ -1,0 +1,6 @@
+{
+    "files.associations": {
+        "*.launch": "xml",
+        "ostream": "cpp"
+    }
+}
